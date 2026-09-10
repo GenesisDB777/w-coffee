@@ -29,14 +29,18 @@ export default function Home() {
 
       {/* Visual Product Showcase Banner */}
       <section className="px-6 md:px-16 py-12 bg-coffee-bg flex justify-center">
-        <div className="max-w-5xl w-full border border-coffee-gold/30 p-2 bg-coffee-surface shadow-[0_0_30px_rgba(0,0,0,0.8)] relative group">
-          <div className="absolute inset-0 border border-coffee-gold/10 pointer-events-none m-2"></div>
-          <img 
-            src="/cups-banner.png" 
-            alt="W Premium Coffee Cups" 
-            className="w-full h-[400px] md:h-[550px] object-cover filter brightness-95 contrast-105"
-          />
-          <div className="absolute bottom-8 left-8 right-8 text-center bg-coffee-bg/80 backdrop-blur-md py-4 border border-coffee-gold/20">
+        <div className="max-w-5xl w-full border border-coffee-gold/30 p-4 bg-coffee-card shadow-[0_0_30px_rgba(0,0,0,0.8)] relative group overflow-hidden">
+          <div className="absolute inset-0 border border-coffee-gold/10 pointer-events-none m-2 z-10"></div>
+          
+          <div className="flex justify-center items-center h-[400px] md:h-[500px] bg-[#151515]">
+            <img 
+              src="/cups-banner.png" 
+              alt="W Premium Coffee Cup" 
+              className="max-h-full max-w-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]"
+            />
+          </div>
+
+          <div className="mt-4 text-center bg-coffee-surface py-3 border border-coffee-gold/20">
             <span className="font-cinzel text-coffee-gold text-sm tracking-[0.3em] uppercase">Artisanal Design &bull; Est. 2024</span>
           </div>
         </div>
