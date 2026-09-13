@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-import { Cinzel, Inter } from "next/font/google";
+import { Cinzel, Outfit } from "next/font/google";
 import "./globals.css";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
   variable: "--font-cinzel",
-  weight: ["600", "700"],
+  weight: ["500", "600", "700"],
 });
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["300", "400", "500"],
+  variable: "--font-outfit",
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "W Premium Coffee | Est. 2024",
-  description: "Impeccably roasted, richly textured, and crafted for the discerning palate.",
+  title: "W Premium Coffee | Coffee Heaven · Est. 2024",
+  description:
+    "Dark cups. Gold crema. Scroll to sip — an interactive coffee ritual for people who refuse ordinary.",
 };
 
 export default function RootLayout({
@@ -25,8 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cinzel.variable} ${inter.variable}`}>
-      <body className="bg-coffee-bg text-coffee-text font-sans antialiased selection:bg-coffee-gold selection:text-coffee-bg">
+    <html lang="en" className={`${cinzel.variable} ${outfit.variable}`}>
+      <body className="bg-coffee-bg text-coffee-text antialiased">
+        <div className="noise-overlay" aria-hidden />
         {children}
       </body>
     </html>

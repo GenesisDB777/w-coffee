@@ -1,17 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-coffee-bg: #121212;
-  --color-coffee-surface: #1a1a1a;
-  --color-coffee-card: #222222;
+  --color-coffee-bg: #0e0d0c;
+  --color-coffee-surface: #161412;
+  --color-coffee-elevated: #1c1916;
   --color-coffee-gold: #d4af37;
-  --color-coffee-gold-light: #f3e5ab;
-  --color-coffee-red: #8b0000;
-  --color-coffee-muted: #a0a0a0;
-  --color-coffee-text: #f4f1ea;
+  --color-coffee-gold-soft: #e8d48b;
+  --color-coffee-red: #7a1212;
+  --color-coffee-muted: #9a9186;
+  --color-coffee-text: #f2ebe0;
+  --color-coffee-bean: #3a2418;
 
-  --font-cinzel: var(--font-cinzel), serif;
-  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-cinzel), "Times New Roman", serif;
+  --font-sans: var(--font-outfit), "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: auto;
 }
 
 body {
@@ -19,4 +24,70 @@ body {
   color: var(--color-coffee-text);
   font-family: var(--font-sans);
   overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-coffee-gold) 70%, transparent);
+  color: var(--color-coffee-bg);
+}
+
+.gold-text {
+  background: linear-gradient(
+    115deg,
+    #8a7020 0%,
+    #d4af37 28%,
+    #f3e5ab 50%,
+    #d4af37 72%,
+    #8a7020 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.w-mark {
+  text-shadow:
+    2px 3px 0 rgba(122, 18, 18, 0.85),
+    0 0 40px rgba(212, 175, 55, 0.2);
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.stone-glow {
+  background:
+    radial-gradient(ellipse 80% 55% at 50% 0%, rgba(212, 175, 55, 0.08), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(58, 36, 24, 0.45), transparent 50%),
+    var(--color-coffee-bg);
+}
+
+.bean-drift {
+  animation: bean-float 9s ease-in-out infinite;
+}
+
+@keyframes bean-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(6deg);
+  }
+}
+
+.fill-meter {
+  transition: height 0.15s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bean-drift {
+    animation: none;
+  }
 }
