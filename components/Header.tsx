@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#sip", label: "Sip" },
+  { href: "#top", label: "Home" },
+  { href: "#sip", label: "Menu" },
+  { href: "#story", label: "About us" },
   { href: "#collection", label: "Collection" },
-  { href: "#story", label: "Story" },
   { href: "#visit", label: "Visit" },
 ];
 
@@ -54,10 +55,10 @@ export function Header() {
         </nav>
 
         <a
-          href="#sip"
+          href="#collection"
           className="border border-coffee-gold/50 px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-coffee-gold transition hover:border-coffee-gold hover:bg-coffee-gold hover:text-coffee-bg"
         >
-          Drink now
+          Order now
         </a>
       </div>
     </motion.header>
